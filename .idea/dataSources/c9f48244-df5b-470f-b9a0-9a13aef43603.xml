@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.43">
     <root id="1">
       <DateStyle>dmy</DateStyle>
-      <IntrospectionStateNumber>580834</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1092365</IntrospectionStateNumber>
       <ServerVersion>15.1</ServerVersion>
       <StartupTime>1673459613</StartupTime>
       <TimeZones>true ACDT
@@ -801,7 +801,7 @@ false Zulu
 13183||10|C|G
 13183||-9223372036854775808|U|G
 13183||10|U|G</Grants>
-      <IntrospectionStateNumber>580834</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1092365</IntrospectionStateNumber>
       <ObjectId>5</ObjectId>
       <Relations>sequence|table|17892|17893|1
 sequence|table|17899|17900|1
@@ -4222,48 +4222,60 @@ sequence|table|17906|17907|1
     <schema id="262" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>580834</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1092365</IntrospectionStateNumber>
       <ObjectId>2200</ObjectId>
       <StateNumber>518</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
     </schema>
-    <sequence id="263" parent="262" name="customers_id_seq">
+    <sequence id="263" parent="262" name="hibernate_sequence">
+      <DataType>bigint|0s</DataType>
+      <ObjectId>18122</ObjectId>
+      <StateNumber>1088059</StateNumber>
+      <OwnerName>postgres</OwnerName>
+    </sequence>
+    <sequence id="264" parent="262" name="customers_id_seq">
       <DataType>bigint|0s</DataType>
       <ObjectId>17892</ObjectId>
       <StateNumber>1612</StateNumber>
       <OwnerName>postgres</OwnerName>
     </sequence>
-    <sequence id="264" parent="262" name="orders_id_seq">
+    <sequence id="265" parent="262" name="orders_id_seq">
       <DataType>bigint|0s</DataType>
       <ObjectId>17899</ObjectId>
       <StateNumber>1613</StateNumber>
       <OwnerName>postgres</OwnerName>
     </sequence>
-    <sequence id="265" parent="262" name="products_id_seq">
+    <sequence id="266" parent="262" name="products_id_seq">
       <DataType>bigint|0s</DataType>
       <ObjectId>17906</ObjectId>
       <StateNumber>1614</StateNumber>
       <OwnerName>postgres</OwnerName>
     </sequence>
-    <table id="266" parent="262" name="customers">
+    <table id="267" parent="262" name="customers">
       <ObjectId>17893</ObjectId>
       <StateNumber>1615</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="267" parent="262" name="orders">
+    <table id="268" parent="262" name="items">
+      <ObjectId>18123</ObjectId>
+      <StateNumber>1088060</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>postgres</OwnerName>
+    </table>
+    <table id="269" parent="262" name="orders">
       <ObjectId>17900</ObjectId>
       <StateNumber>1615</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="268" parent="262" name="products">
+    <table id="270" parent="262" name="products">
       <ObjectId>17907</ObjectId>
       <StateNumber>1616</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <column id="269" parent="266" name="id">
+    <column id="271" parent="267" name="id">
       <DataType>bigint|0s</DataType>
       <DefaultExpression>nextval(&apos;customers_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -4271,13 +4283,13 @@ sequence|table|17906|17907|1
       <StateNumber>1612</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="270" parent="266" name="name">
+    <column id="272" parent="267" name="name">
       <DataType>varchar(255)|0s</DataType>
       <Position>2</Position>
       <StateNumber>1612</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="271" parent="266" name="customers_pkey">
+    <index id="273" parent="267" name="customers_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17897</ObjectId>
@@ -4286,14 +4298,43 @@ sequence|table|17906|17907|1
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="272" parent="266" name="customers_pkey">
+    <key id="274" parent="267" name="customers_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17898</ObjectId>
       <Primary>1</Primary>
       <StateNumber>1612</StateNumber>
       <UnderlyingIndexId>17897</UnderlyingIndexId>
     </key>
-    <column id="273" parent="267" name="id">
+    <column id="275" parent="268" name="id">
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>1088060</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="276" parent="268" name="val">
+      <DataType>integer|0s</DataType>
+      <Position>2</Position>
+      <StateNumber>1088060</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="277" parent="268" name="items_pkey">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>18126</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>1088060</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="278" parent="268" name="items_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>18127</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>1088060</StateNumber>
+      <UnderlyingIndexId>18126</UnderlyingIndexId>
+    </key>
+    <column id="279" parent="269" name="id">
       <DataType>bigint|0s</DataType>
       <DefaultExpression>nextval(&apos;orders_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -4301,26 +4342,26 @@ sequence|table|17906|17907|1
       <StateNumber>1613</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="274" parent="267" name="price">
+    <column id="280" parent="269" name="price">
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>1613</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="275" parent="267" name="customer_id">
+    <column id="281" parent="269" name="customer_id">
       <DataType>bigint|0s</DataType>
       <Position>3</Position>
       <StateNumber>1613</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="276" parent="267" name="product_id">
+    <column id="282" parent="269" name="product_id">
       <DataType>bigint|0s</DataType>
       <Position>4</Position>
       <StateNumber>1613</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <foreign-key id="277" parent="267" name="fkpxtb8awmi0dk6smoh2vp1litg">
+    <foreign-key id="283" parent="269" name="fkpxtb8awmi0dk6smoh2vp1litg">
       <ColNames>customer_id</ColNames>
       <ObjectId>17913</ObjectId>
       <RefColNames>id</RefColNames>
@@ -4330,7 +4371,7 @@ sequence|table|17906|17907|1
       <RefTableName>customers</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <foreign-key id="278" parent="267" name="fkkp5k52qtiygd8jkag4hayd0qg">
+    <foreign-key id="284" parent="269" name="fkkp5k52qtiygd8jkag4hayd0qg">
       <ColNames>product_id</ColNames>
       <ObjectId>17918</ObjectId>
       <RefColNames>id</RefColNames>
@@ -4340,7 +4381,7 @@ sequence|table|17906|17907|1
       <RefTableName>products</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <index id="279" parent="267" name="orders_pkey">
+    <index id="285" parent="269" name="orders_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17904</ObjectId>
@@ -4349,14 +4390,14 @@ sequence|table|17906|17907|1
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="280" parent="267" name="orders_pkey">
+    <key id="286" parent="269" name="orders_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17905</ObjectId>
       <Primary>1</Primary>
       <StateNumber>1613</StateNumber>
       <UnderlyingIndexId>17904</UnderlyingIndexId>
     </key>
-    <column id="281" parent="268" name="id">
+    <column id="287" parent="270" name="id">
       <DataType>bigint|0s</DataType>
       <DefaultExpression>nextval(&apos;products_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -4364,19 +4405,19 @@ sequence|table|17906|17907|1
       <StateNumber>1614</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="282" parent="268" name="name">
+    <column id="288" parent="270" name="name">
       <DataType>varchar(255)|0s</DataType>
       <Position>2</Position>
       <StateNumber>1614</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="283" parent="268" name="price">
+    <column id="289" parent="270" name="price">
       <DataType>integer|0s</DataType>
       <Position>3</Position>
       <StateNumber>1614</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="284" parent="268" name="products_pkey">
+    <index id="290" parent="270" name="products_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17911</ObjectId>
@@ -4385,7 +4426,7 @@ sequence|table|17906|17907|1
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="285" parent="268" name="products_pkey">
+    <key id="291" parent="270" name="products_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>17912</ObjectId>
       <Primary>1</Primary>

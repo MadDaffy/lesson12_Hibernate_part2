@@ -5,6 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import javax.persistence.LockModeType;
+import java.math.BigInteger;
 import java.util.Random;
 import java.util.concurrent.CountDownLatch;
 
@@ -62,11 +63,13 @@ public class MainApp {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-
-            Session session = sessionFactory.getCurrentSession();
             System.out.println("time: " + (System.currentTimeMillis() - time));
-            Long sum = (Long) session.createNativeQuery("SELECT  SUM(val) FROM items;").getSingleResult();
+            Session session = sessionFactory.getCurrentSession();
+            session.beginTransaction();
+            Object sum = session.createNativeQuery("SELECT  SUM(val) FROM items;").getSingleResult();
             System.out.println("!!!!!!!!!!!!!!!" + sum + "!!!!!!!!!!!!!!!");
+            session.getTransaction().commit();
+            session.close();
         }
 
         System.out.println("main closed");
