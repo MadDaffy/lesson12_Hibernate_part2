@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f0b7af84-2b2b-4d8e-a221-386a557597ec" name="Changes" comment="Lesson 12, homework">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c9f48244-df5b-470f-b9a0-9a13aef43603.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c9f48244-df5b-470f-b9a0-9a13aef43603.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c9f48244-df5b-470f-b9a0-9a13aef43603/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c9f48244-df5b-470f-b9a0-9a13aef43603/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/geekbrains/lesson12/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/geekbrains/lesson12/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +65,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1673522589048</updated>
-      <workItem from="1673522591099" duration="18609000" />
+      <workItem from="1673522591099" duration="20343000" />
     </task>
     <task id="LOCAL-00001" summary="Lesson 12, homework">
       <created>1673540811396</created>
@@ -72,7 +74,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673540811396</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Lesson 12, homework">
+      <created>1673541843786</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1673541843786</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
