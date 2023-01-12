@@ -20,10 +20,11 @@ public class MainApp {
                 session.save(new Item());
                 session.getTransaction().commit();
             }
-//            CountDownLatch countDownLatch = new CountDownLatch(8); ЗАЧЕМ ЭТО ДЕЛАЕТСЯ??
+            CountDownLatch countDownLatch = new CountDownLatch(8);
+            Thread[] threads = new Thread[8];
             long time = System.currentTimeMillis();
-            for (int i = 0; i < 8; i++) {
-                new Thread(() ->
+            for (int i = 0; i < threads.length; i++) {
+               threads[i] = new Thread(() ->
                 {
                     for (int j = 0; j < 20_000; j++) {
                         Session session1 = sessionFactory.getCurrentSession();
@@ -43,15 +44,16 @@ public class MainApp {
                         session1.close();
                         System.out.println(Thread.currentThread().getName() + " отработал");
                     }
-//                    countDownLatch.countDown(); ЗАЧЕМ ЭТОТ СЧЕТЧИК ЗДЕСЬ?
-                }).start();
+                    countDownLatch.countDown();
+                });
+               threads[i].start();
             }
-//            ПОЧЕМУ JOIN здесь работает?
-//            try {
-//                Thread.currentThread().join();
-//            } catch (InterruptedException e) {
-//                throw new RuntimeException(e);
-//            }
+            try {
+                countDownLatch.await();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+
             Session session = sessionFactory.getCurrentSession();
             System.out.println("time: " + (System.currentTimeMillis() - time));
             Long sum = (Long) session.createNativeQuery("SELECT  SUM(val) FROM items;").getSingleResult();
@@ -61,7 +63,7 @@ public class MainApp {
         System.out.println("main closed");
     }
 
-    // Хотел в отдельную функцию, но что-то пошло не так
+    // Необходимо вынести большинство логики в отдельную функцию
 //    public static void parallelIncreaseValByOneManyTimes(SessionFactory sessionFactory) {
 //
 //    }
